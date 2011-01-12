@@ -48,6 +48,12 @@
 }
 
 
+#header span {
+  position: absolute;
+  bottom: 5%;
+  left: 10px;
+}
+
 #header img {
   position: absolute;
   top: 5%;
@@ -227,7 +233,7 @@
 
 /* Column widths */
 .width {
-  width: 776px;
+  width: 777px;
 }
 
 .widthPad {
@@ -236,6 +242,18 @@
 
 .width25 {
   width: 24%;
+}
+
+.width33 {
+  width: 32%;
+}
+
+.width66 {
+  width: 66%;
+}
+
+.width63 {
+  width: 63%;
 }
 
 .width50 {
