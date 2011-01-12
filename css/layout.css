@@ -91,7 +91,7 @@
 }
 
 #header ul li a:hover {
-  color: #F26A92;
+  color: #536C71; 
 }
 
 
@@ -291,6 +291,7 @@
   height: 5em;
   margin: 0 auto;
   background: #49525B url(../images/bg/header.gif) repeat-x bottom left;
+  color: #cccccc;
 }
 
 #footer #bg ul {
