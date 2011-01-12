@@ -103,7 +103,7 @@
 #headerImg {
   margin: 0 auto;
   height: 350px;
-  background: url(../images/headers/hdr2.jpg) no-repeat top left;
+  background: /*url(../images/headers/hdr2.jpg)*/ no-repeat top left;
 }
 
 
