@@ -8,6 +8,22 @@
 <!-- CSS specific to current theme -->
 <link rel="stylesheet" type="text/css" href="css/light.css" title="light" media="screen, projection, tv " />
 <link rel="alternate stylesheet" type="text/css" href="css/dark.css"  title="dark"  media="screen, projection, tv " />
+<script type="text/javascript"> 
+<!-- 
+if (document.getElementById) { window.onload = swap };
+function swap() {
+var numimages=11;
+rndimg = new Array("images/headers/hdr1.jpg", "images/headers/hdr2.jpg",
+"images/headers/hdr3.jpg", "images/headers/hdr4.jpg", "images/headers/hdr5.jpg",
+"images/headers/hdr6.jpg", "images/headers/hdr7.jpg", "images/headers/hdr8.jpg",
+"images/headers/hdr9.jpg", "images/headers/hdr10.jpg", "images/headers/hdr11.jpg"
+); 
+x=(Math.floor(Math.random()*numimages));
+randomimage=(rndimg[x]);
+document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage +")"; 
+}
+//--> 
+</script>
 </head>
 <body>
 <!-- #content: holds all except site footer - causes footer to stick to bottom -->
