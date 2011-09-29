@@ -58,6 +58,41 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		to write something down or share a great recipe.  This page won't be
 		updated regularly but it should fill with interesting tidbits eventually.
 		</p>
+		<!-- -->
+		<h1> Sept 29, 2011:<span class="dark"> The Binomial Inverse
+			theorem</span></h1>
+		<p> Here is a matrix trick that I'm sure I wasn't taught in school 
+		(although my undergrad was embarrassingly lacking in linear algebra).
+		Let me prefix everything by saying that I'm currently working on a map
+		making code for the 21 cm experiment I'm involved in.  Map making is
+		big business in the CMB community and I'm trying to translate what is
+		used there to 21 cm.  Map making is all about linear algebra and
+		dealing with large matrices and one of the big challenges is inverting
+		some of these matrices.</p>
+
+		<p>The <a href="http://en.wikipedia.org/wiki/Binomial_inverse_theorem"> 
+		  binomial inverse theorem</a> tells you how to invert sums of
+		matrices for which you already know the inverses.  For a general pair of
+		matrices it isn't that useful, since applying the formula is as much work
+		as computing an inverse the normal way.  Where the theorem comes in
+		handy is when one of the matrices is of low rank.  Lets you have an 
+		<i>(n*n)</i> matrix <i>A</i> for which you already have the inverse.
+		You have another matrix <i>B</i> that is the same size but only has rank
+		<i>m</i> which is a relatively small number.  The inverse of their sum
+		can be computed in <i>O(n*m<sup>2</sup>)</i> operations instead of the
+		normal <i>O(n<sup>3</sup>)</i>.  This is assuming you already know how
+		to rotate <i>B</i> to an <i>(m*m)</i> dense matrix, but this is probably
+		how you got <i>B</i> in the first place.</p>
+
+		<p> All fine and good, but I still need to invert <i>A</i> so I haven't
+		gained anything.  This brings us to where the theorem is <b>really</b>
+		useful: if <i>A</i> of is full rank but is diagonal or block diagonal.
+		This symmetry lets you invert and multiply by <i>A</i> quickly but
+		does nothing for <i>A+B</i> unless you use binomial inverse theorem.
+		This might seem like a pretty limited range of applicability but this
+		situation has come up no less than 3 times in my map making code.  Thank
+		you Wikipedia.</p>
+		<!-- -->
       </div>
       <!-- Left end -->
     </div>
