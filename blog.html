@@ -10,11 +10,12 @@
 <!-- 
 if (document.getElementById) { window.onload = swap };
 function swap() {
-var numimages=11;
+var numimages=13;
 rndimg = new Array("images/headers/hdr1.jpg", "images/headers/hdr2.jpg",
 "images/headers/hdr3.jpg", "images/headers/hdr4.jpg", "images/headers/hdr5.jpg",
 "images/headers/hdr6.jpg", "images/headers/hdr7.jpg", "images/headers/hdr8.jpg",
-"images/headers/hdr9.jpg", "images/headers/hdr10.jpg", "images/headers/hdr11.jpg"
+"images/headers/hdr9.jpg", "images/headers/hdr10.jpg", "images/headers/hdr11.jpg",
+"images/headers/hdr12.jpg", "images/headers/hdr13.jpg"
 ); 
 x=(Math.floor(Math.random()*numimages));
 randomimage=(rndimg[x]);
@@ -79,19 +80,24 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		<i>(n*n)</i> matrix <i>A</i> for which you already have the inverse.
 		You have another matrix <i>B</i> that is the same size but only has rank
 		<i>m</i> which is a relatively small number.  The inverse of their sum
-		can be computed in <i>O(n*m<sup>2</sup>)</i> operations instead of the
+		can be computed in <i>O(m*n<sup>2</sup>)</i> operations instead of the
 		normal <i>O(n<sup>3</sup>)</i>.  This is assuming you already know how
 		to rotate <i>B</i> to an <i>(m*m)</i> dense matrix, but this is probably
-		how you got <i>B</i> in the first place.</p>
+		how you got <i>B</i> in the first place 
+		(or else why would it have such a low rank?).</p>
 
 		<p> All fine and good, but I still need to invert <i>A</i> so I haven't
 		gained anything.  This brings us to where the theorem is <b>really</b>
-		useful: if <i>A</i> of is full rank but is diagonal or block diagonal.
+		useful; if <i>A</i> of is full rank but is diagonal or block diagonal.
 		This symmetry lets you invert and multiply by <i>A</i> quickly but
 		does nothing for <i>A+B</i> unless you use binomial inverse theorem.
 		This might seem like a pretty limited range of applicability but this
-		situation has come up no less than 3 times in my map making code.  Thank
-		you Wikipedia.</p>
+		situation has come up no less than 3 times in my map making code.</p>
+		
+		<p> I'm only writing about this wonderful identity because it doesn't 
+		seem to be common knowledge in my field.  It's been so useful I figured
+		it would be in every map making reference around.  
+		</p>
 		<!-- -->
       </div>
       <!-- Left end -->
