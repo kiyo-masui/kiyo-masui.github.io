@@ -60,8 +60,65 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		updated regularly but it should fill with interesting tidbits eventually.
 		</p>
 		<!-- -->
-		<h1> Oct 13, 2011:<span class="dark"> Things I'm looking forward to
-			this Winter</span></h1>
+		<h1> <a name="memory">Dec 9, 2011:<span class="dark"> Use more memory than your machine
+			  has</span></a></h1>
+		<p> In performance computing, there are times when the size of the
+		problem
+		you can treat is limited not by computing speed, but by your
+		machine's total memory.  This is the case for parts of the map making
+		code I am developing.  For linear algebra, I'm using AMD graphics
+		cards and the <i>acml-gpu</i> libraries to speed things up, and am now
+		completely limited by the amount of memory on the machine.  I want to
+		hold off working on a cluster as long as possible because waiting in a
+		queue and transferring data back and forth from the cluster would slow
+		development.  Just to put some numbers to things, the server I'm using
+		has 144 GB of memory and 4 GPUs meaning I can deal with square matrices
+		of order 100 000 on the side and each operation takes about an hour (in
+		double precision).</p>
+		
+		<p> I have two tricks for stretching my memory further. This first is
+		to use memory maps.  A memory map is essentially a file on disk that
+		your machine treats as memory.  Now, your hard disk is a lot slower than
+		main memory, but the beauty of a memory map is that the parts of the
+		file that you are currently using get cached in memory, and so access
+		and assignment are fast.  This works great if you have a
+		lot of operations to perform at a time on a small part of a huge piece
+		of data.  However, this requires you to be very careful.  If you access
+		your data too sporadically, the program will grind to a halt.  Still
+		I've found that memory map are unbelievably forgiving, and tend to
+		perform quite a bit better than you would initially expect.  The memory
+		map functionality is available to python users through
+		<a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.memmap.html"
+		  ><i>numpy</i></a>, and is trivial to use.</p>
+
+		<p> My second trick is much more subtle, and relies on modern operating
+		systems being <a href="http://en.wikipedia.org/wiki/Virtual_memory"
+		  >virtual memory systems</a>.  In a virtual memory system, physical
+		memory is not allocated when a process allocates (mallocs) memory.
+		Instead, virtual memory is.  Physical memory is only allocated when
+		the virtual memory is used.  So when programming, you can feel free to
+		allocate as much memory as you want, as long as you don't use it.  This
+		is useful for me because the matrices I deal with are symmetric.  The
+		linear algebra routines I'm using (standard <i>LAPACK</i> routines such
+		as a Cholesky decomposition) never touch
+		the lower triangular part of the matrix.  So, what I do is allocate a
+		huge chunk of memory, only fill half of it, and have matrix operations
+		performed in place.  On the machine I'm using, the maximum matrix size
+		I can work with is 180 000 on each side, which takes about 6 hours.
+		Not bad for not having to use a cluster.</p>
+
+		<p> There is a slight complication in that <i>numpy</i> will not allow
+		you to allocate more memory than your machine has (using the command
+		np.empty).  I had to hack together some <i>cython</i> code so I could
+		malloc the memory in <i>C</i> and convert it to a <i>numpy</i> array.
+		I've posted the code below, feel free to use it, change it,
+		whatever.</p>
+
+		<script src="https://gist.github.com/1447078.js?file=large_empty.pyx"></script>
+		
+		<!-- -->
+		<h1><a name="winter"> Oct 13, 2011:<span class="dark"> Things I'm looking forward to
+		    this Winter</span></a></h1>
 		<p> Winter is starting to creep up on us and if I get even one more
 		camping trip in this fall I'll be lucky.  It's not all bad though,
 		as winter has a few things going for it that are often neglected. 
@@ -101,8 +158,8 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		<p><b> Planning next summer's adventures. </b> Enough said.</p>
 
 		<!-- -->
-		<h1> Sept 29, 2011:<span class="dark"> The Binomial Inverse
-			theorem</span></h1>
+		<h1><a name=inverse> Sept 29, 2011:<span class="dark"> The Binomial Inverse
+			  theorem</span></a></h1>
 		<p> Here is a matrix trick that I'm sure I wasn't taught in school 
 		(although my undergrad was embarrassingly lacking in linear algebra).
 		Let me prefix everything by saying that I'm currently working on a map
