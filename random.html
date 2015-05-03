@@ -67,98 +67,6 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		related) issues.
 		</p>
         <!-- -->
-		<h1> <a name="memory"></a><span class="dark"> 
-			The leap second: a terrible idea</span></h1>
-		<p> Coordinated Universal Time or UTC is the time standard that defines
-		the time of day as we all know it.  It is carefully kept using atomic
-		clocks.  However, other time standards exist such as Greenwich Mean Time
-		(GMT) which is astronomically defined. Because a solar day is slightly
-		longer than 86400 seconds and because Earth's rotations can be affected
-		by things like earthquakes and weather, UTC and the astronomical GMT
-		can get slightly out of sync.  Because of this,
-		<a href="http://en.wikipedia.org/wiki/Leap_second">Leap seconds</a> are
-		periodically added to a year to keep these time standards in sync.
-		They are normally added at midnight on December 31st or June 30th.  The
-		addition of a leap second is unpredictable and only ever announced
-		six months in advance.
-		There have been 25 leap seconds in that 40 year history of UTC. At
-		first this might seem like a good idea: at a given location and at 
-		the same
-		time of year, the sun always rises at the same time to within a
-		second.  However there is a debate over whether leap seconds should be
-		eliminated in favour of rare leap hours.  The title should tell you
-		where I stand on this.</p>
-
-		<p><b>Most people don't care, and for the people who do care leap seconds
-		   are inconvenient.</b>
-		Clearly at an average rate of roughly 1 leap second every 2 years,
-		most people simply don't care.  The only people who could possibly care
-		are those who need to know the time of day very precisely for special
-		applications. For instance, I have to worry about leap seconds
-		when processing data from the Greenbank Telescope. 
-		There are two systems writing separate data files
-		whose data I have to synchronize based on their time-stamps.
-		If a leap second
-		happens during my observation then I will have a slight error (update:
-		turns out that the Greenbank Telescope shuts down for leap seconds
-		because they can't deal with them either.  So I guess I don't have to
-		worry about it). It is
-		simply too hard for me to add support to deal with leap seconds. 
-		More generally, what
-		if you needed to precisely know how much time passed between 11:50:00 PM and
-		12:10:00 AM? I'd like to say it was 20 minutes, but I'd better go
-		online to see if a leap second happened.  If it's an 
-		critical system where you can't afford to make a mistake,
-		then this is a disaster to code up.</p>
-		
-		<p><b>Even as an astronomer, I don't like leap seconds.</b>
-		Leap seconds exist for astronomers. By precisely synchronizing our 
-		clocks to the solar day, I can precisely calculate the direction to any
-		astronomical object from only the date, UTC time,
-		and my location on earth.  As such,
-		I can use a library such as 
-		<a href="http://rhodesmill.org/pyephem/">PyEphem</a> to figure out where
-		I should point my telescope, and that library does not have to make 
-		Internet quarries as long as I supply the time as a UTC. 
-		Other effects, such as the precession of the equinox (which is a 
-		bigger effect), are much easier
-		to predict, so the library can account for them.  However, 
-		I would argue that the broad range of applications for which leap seconds
-		are a hindrance far outweighs the benefits for this one application. 
-		Astronomers need to use a canned library for astronomical calculations 
-		anyway, because of precession.  The only difference is whether the library
-		needs to make Internet quarries, or not.
-		</p>
-
-		<p><b>If we switch to leap hours, we will never have to deal with one.</b>
-		Without leap seconds, in 1000 years, the sunrise time will have
-		changed by about 10 minutes, which in my mind is perfectly acceptable.
-		If we did switch to leap hours you would only need them every 6000 years
-		or so.
-		Now I agree that a leap hour would cause problems.
-		It would be like
-		the daylight savings time that never ended.
-		However this will never happen
-		because it is almost inconceivable that the UTC standard will still be
-		around 6000 years from now. Assuming that the human race is
-		still around in 6000 years, and that most people don't live in space
-		(in which case it's a moot point), the standard itself will surely be
-		replaced multiple times as cultures evolve.  In addition individual
-		states have the freedom to set their time zones relative to UTC and
-		these time zone definitions tend to change periodically. These time
-		zone changes could be used to sync up the local time and the solar day
-		instead of adding a leap hour.  It would be a
-		simple matter to add or subtract a half an hour next time you decide
-		you don't like daylight savings time anymore (or vise-versa).  In human
-		history no single state has ever even survived much more than a thousand
-		years.
-		Cultural changes happen on much shorter time scales so it's silly
-		to go through great lengths to worry about how time will be kept in
-		6000 years.</p>
-
-
-
-		<!-- -->
 		<h1> <a name="memory"></a><span class="dark"> Use more memory than your machine
 			  has</span></h1>
 		<p> In performance computing, there are times when the size of the
@@ -217,8 +125,7 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		<!-- -->
 		<h1><a name=inverse></a><span class="dark"> The Binomial Inverse
 			  theorem</span></h1>
-		<p> Here is a matrix trick that I'm sure I wasn't taught in school 
-		(although my undergrad was embarrassingly lacking in linear algebra).
+		<p> Here is a matrix trick that I'm sure I wasn't taught in school.
 		Let me prefix everything by saying that I'm currently working on a map
 		making code for the 21 cm experiment I'm involved in.  Map making is
 		big business in the CMB community and I'm trying to translate what is
@@ -294,12 +201,6 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		reference or warning about using the identity, I had to learn this the
 		hard way (weeks of debugging).
 		</p>
-		
-		<p> I'm only writing about this wonderful identity because it doesn't 
-		seem to be common knowledge in my field.  It's been so useful I figured
-		it would be in every map making reference around.
-		</p>
-
 		<!-- -->
       </div>
       <!-- Left end -->
@@ -314,8 +215,8 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
   <!-- #bg: applies the site width and footer background -->
   <div id="bg" class="width">
 	  <br/>
-	  Kiyoshi Wesley Masui &nbsp;&nbsp; kiyo _at_ cita _dot_ utoronto.ca &nbsp;&nbsp; tel: 416 978 5861
-      &nbsp;&nbsp; office: <a href="http://cita.utoronto.ca/index.php/Contact-Visitor-Info">MP</a> 1318
+	  Kiyoshi Wesley Masui &nbsp;&nbsp; kiyo _at_ physics _dot_ ubc.ca &nbsp;&nbsp; tel: 647 761 3494
+      &nbsp;&nbsp; office: <a href="http://www.phas.ubc.ca/contact-us">Hennings</a> 206
   </div>
   <!-- #bg end -->
 </div>
