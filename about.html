@@ -10,15 +10,17 @@
 <!-- 
 if (document.getElementById) { window.onload = swap };
 function swap() {
-var numimages=15;
-rndimg = new Array("images/headers/hdr01.jpg", "images/headers/hdr02.jpg",
+var numimages=22;
+rndimg = new Array(
+"images/headers/hdr01.jpg", "images/headers/hdr02.jpg",
 "images/headers/hdr03.jpg", "images/headers/hdr04.jpg", "images/headers/hdr05.jpg",
 "images/headers/hdr06.jpg", "images/headers/hdr07.jpg", "images/headers/hdr08.jpg",
 "images/headers/hdr09.jpg", "images/headers/hdr10.jpg", "images/headers/hdr11.jpg",
 "images/headers/hdr12.jpg", "images/headers/hdr13.jpg", "images/headers/hdr14.jpg",
 "images/headers/hdr15.jpg", "images/headers/hdr16.jpg", "images/headers/hdr17.jpg",
 "images/headers/hdr18.jpg", "images/headers/hdr19.jpg", "images/headers/hdr20.jpg",
-"images/headers/hdr21.jpg"
+"images/headers/hdr21.jpg", "images/headers/hdr22.jpg", "images/headers/hdr23.jpg"
+
 ); 
 x=(Math.floor(Math.random()*numimages));
 randomimage=(rndimg[x]);
@@ -55,7 +57,7 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
       <!-- Left column -->
       <div class="floatLeft width100">
 	    <br/>
-		<h1> My <span class="dark">path</span></h1>
+		<h1> Academic <span class="dark">path</span></h1>
 		<img src="images/pics/kaito1.jpg" height="200" width="300" align="right" hspace="10" alt="Kaito Garrett Masui." />
     	<p> I received my undergrad in Engineering Physics from Queen's
 		University in Kingston, Ontario.
@@ -116,7 +118,10 @@ document.getElementById("headerImg").style.backgroundImage = "url("+ randomimage
 		other outdoor sports. I also very much like to cook (and eat).
 		<br/>
 		<br/>
-		<small>Photo credit: Spencer Fu</small>
+		</p>
+		<h1> Header <span class="dark">images</span></h1>
+		<p>
+		Images in the headers are selected randomly every time a page is reloaded. They were taken on various trips around the world, mostly from when I was in grad school.
 		</p>
       </div>
       <!-- Left end -->
